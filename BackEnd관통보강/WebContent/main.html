@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    
+    <link rel="stylesheet" href="main.css" />
+</head>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">LEE's SSAFIT</a>
+          <form class="d-flex" onsubmit="return false;">
+            <input
+                class="form-control me-2"
+                type="search"
+                placeholder="영상 제목을 입력하세요."
+                aria-label="Search"
+                id="search-input"
+                style="width: 400px"
+            />
+            <button class="btn btn-primary" type="submit" id="search-btn" style="display: flex;">검색</button>
+          </form>
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link text-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+                <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+              </svg>(로그인)</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link text-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+              </svg>(로그아웃)</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link text-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+            </svg>(회원가입)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" href="mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5ZM9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8Zm1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Zm-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5ZM7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z"/>
+              </svg>(찜목록)</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <!-- 유튜브 API로 불러온 정보 -->
+      <ul id="search-result-list">
+        <li><h5>Thankyou BUBU</h5>
+          <img src="https://i.ytimg.com/vi/gMaB-fG4u4g/mqdefault.jpg">
+          <p>전신 다이어트 최고의 운동 [칼소폭 찐 핵핵매운맛]</p>
+          <div id="button2">
+          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+          data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+          </div>
+        </li>
+        <li><h5>빅씨스 Bigsis</h5><img src="https://i.ytimg.com/vi/myNjmnvI6x0/mqdefault.jpg">
+          <p>NO 층간소음 올인원 운동 - 40분 유산소운동 홈트 - 관절에 무리없이 체지방 태우기</p>
+          <div id="button2">
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+            </div>
+        </li>
+        <li>
+          <h5>빅씨스 Bigsis</h5>
+          <img src="https://i.ytimg.com/vi/4kZHHPH6heY/mqdefault.jpg">
+          <p>NO 층간소음 - 고민없이 하나로 끝내는 전신운동 근력 유산소 - 운동 못한 날 죄책감 씻어줄 30분 홈트</p>
+          <div id="button2">
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+            </div>
+        </li>
+        <li>
+          <h5>비타민신지니 VitaminJINY</h5>
+          <img src="https://i.ytimg.com/vi/N7W4mvOyxIk/mqdefault.jpg">
+          <p>와...르세라핌이 ‘이 동작’으로 살을 뺐구나....[극강의 9분 전신운동]</p>
+          <div id="button2">
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+            </div>
+        </li>
+        <li>
+          <h5>이지은 다이어트 Jiny diet</h5>
+          <img src="https://i.ytimg.com/vi/dpBYYEhdofI/mqdefault.jpg">
+          <p>앞벅지 볼록, 뒷벅지 셀룰라이트, 허벅지 안쪽살 모조리 불태우고🔥 [여리탄탄 일자 허벅지] 되는 7일 루틴</p>
+          <div id="button2">
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+            </div>
+        </li>
+        <li>
+          <h5>빅씨스 Bigsis</h5>
+          <img src="https://i.ytimg.com/vi/OMgkDnDOpqI/mqdefault.jpg">
+          <p>상쾌한 아침 운동 20분 - 홈트로 하루를 건강하게 시작해 보세요 💖</p>
+          <div id="button2">
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+            </div>
+        </li>
+          <li>
+            <h5>연합뉴스TV</h5><img src="https://i.ytimg.com/vi/C_Gvs7Xi6BI/mqdefault.jpg">
+            <p>국세청, 연예인·운동선수·유튜버 등 84명 세무조사 / 연합뉴스TV (YonhapnewsTV)</p>
+            <div id="button2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+              </div>
+          </li>
+          <li>
+            <h5>Thankyou BUBU</h5>
+            <img src="https://i.ytimg.com/vi/lKwZ2DU4P-A/mqdefault.jpg">
+            <p>집에서 칼로리 불태우는 최고의 유산소운동 [칼소폭 매운맛]</p>
+            <div id="button2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+              </div>
+          </li>
+          <li>
+            <h5>쥅쥅</h5>
+            <img src="https://i.ytimg.com/vi/9U2V-5ghhjQ/mqdefault.jpg">
+            <p>&amp;quot;느리게 가도돼 하지만 멈춰선 안돼“ 운동노래 쇠힙 playlist</p>
+            <div id="button2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+              </div>
+          </li>
+          <li>
+            <h5>굿라이프</h5>
+            <img src="https://i.ytimg.com/vi/I5jpIQbpHu8/mqdefault.jpg">
+            <p>&amp;#39;꿀잠 주무세요&amp;#39; 1탄! 숙면을 부르는 취침 전 ‘등 운동’! - 골통 의사 윤재웅 #57 숙면 불면</p>
+            <div id="button2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+              </div>
+          </li>
+          <li>
+            <h5>엄마TV</h5>
+            <img src="https://i.ytimg.com/vi/ZSlp52IDzu0/mqdefault.jpg">
+            <p>댄스 다이어트 끝판왕 체중감량 운동 다이어트 댄스 에어로빅</p>
+            <div id="button2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+              </div>
+          </li>
+          <li>
+            <h5>힙으뜸</h5>
+            <img src="https://i.ytimg.com/vi/A5MzlPgNcJM/mqdefault.jpg">
+            <p>(근육통주의!!!!) 🔥올인원🔥 전신 근력운동 50분 홈트레이닝</p>
+            <div id="button2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">리뷰 등록</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2" id="showModalBtn">리뷰 확인</button>
+              </div>
+          </li>
+         <!--  <li><h5>Thankyou BUBU</h5><img src="https://i.ytimg.com/vi/swRNeYw1JkY/mqdefault.jpg"><p>하루 15분! 전신 칼로리 불태우는 다이어트 운동</p></li>
+          <li><h5>비타민신지니 VitaminJINY</h5><img src="https://i.ytimg.com/vi/CMOu_vxgxVo/mqdefault.jpg"><p>🔥운동하기 싫을 때 하는 칼로리 폭파 다이어트 댄스🔥 뉴진스 - DITTO💕</p></li>
+          <li><h5>Thankyou BUBU</h5><img src="https://i.ytimg.com/vi/2Uv1B3kjCOI/mqdefault.jpg"><p>아랫뱃살 똥배 폭파 운동</p></li>
+          <li><h5>보통사람을 위한 운동채널</h5><img src="https://i.ytimg.com/vi/nC0MlfyQUAM/mqdefault.jpg"><p>넓은 어깨는 어떻게 만들어지는가? (어깨 프레임 넓혀주는 운동)</p></li>
+          <li><h5>5분 헬스 정보</h5><img src="https://i.ytimg.com/vi/bsZUlsXAJt4/mqdefault.jpg"><p>최신 근육활성도 기계로 알아본 가장 효율높은 어깨운동은!?  어깨운동 딱 ‘2가지’만 하면 어깨깡패가 될 수 있는 필수 운동! 어깨가 넓어지는 가장 효과적인 방법!</p></li>
+          <li><h5>밝은건강TV</h5><img src="https://i.ytimg.com/vi/GKt9ROHocyY/mqdefault.jpg"><p>무릎관절에 무리 없는 50대 하체운동, 무릎통증 없이 매일 따라하세요!! [스쿼트대신하는 운동, 관절부담없는 운동, 중년운동, 50대운동, 중년하체운동]</p></li>
+          <li><h5>보통사람을 위한 운동채널</h5><img src="https://i.ytimg.com/vi/f6MrRoFRG6Y/mqdefault.jpg"><p>일반인들이 &amp;#39;식스팩&amp;#39; 만들려면 얼마나 걸릴까? (빠르게 복근 만드는 운동루틴)</p></li>
+          <li><h5>비타민신지니 VitaminJINY</h5><img src="https://i.ytimg.com/vi/9_7FHoMNt0E/mqdefault.jpg"><p>태연님…솔직히 이렇게 운동하는 건 반칙이죠…ㅠㅜ [역대급 6분 뱃살 파괴 운동]</p></li> -->
+         </ul>
+
+        <!-- <ul id="search-result-list">
+        </ul> -->
+
+         <!-- Modal1 -->
+    <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">리뷰 등록</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control"
+          placeholder="작성자"style="width: 466px" id="user"/>
+          <br>
+          <input class="form-control"
+          placeholder="제목"style="width: 466px" id="title"/>
+          <br>
+          <input class="form-control"
+          placeholder="내용"style="width: 466px; height: 300px" id="content"/>
+        </div>
+        <div class="modal-footer">
+          <!-- <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button> -->
+          <div style="margin: auto;">
+          <button class="btn btn-outline-primary" onclick="regist()">등록</button>&nbsp;
+      
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal2 -->
+  <div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">리뷰 확인</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="close"
+        ></button>
+      </div>
+      <div class="modal-body" id="reviewmodal-body">
+        
+      </div>
+      <div class="modal-footer">
+         
+        <button type="button" class="btn btn-danger" id="delete" onclick="deletebtn()" style="margin: auto;">리뷰 삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="reviewModal" class="modal">
+  <div class="modal-content">
+    <span class="close">×</span>
+    <h2>Reviews</h2>
+    <div id="reviewsContainer"></div>
+  </div>
+</div> -->
+      <script>
+        // const URL = "https://www.googleapis.com/youtube/v3/search";
+        // const API_KEY = "AIzaSyDOQ0lwag02GgFYaC7REdPYbZ7dfeihCKA";
+        
+        // const btn = document.querySelector('#search-btn');
+        // btn.addEventListener('click', () => {
+        //   //검색어를 가져오기
+        //   const inputTag = document.querySelector('#search-input');
+        //   let keyword = inputTag.value;
+        //   console.log(keyword);
+  
+        //   //그 검색어를 fetch를 이용해서 요청하기
+        //   fetch(`${URL}?key=${API_KEY}&part=snippet&q=${keyword}&type=video&maxResults=20`)
+        //   //console.log(`${URL}?key=${API_KEY}&part=snippet&q=${keyword}&type=video&maxResults=20`);
+            
+        //     .then((res) => res.json())
+        //      .then((body) => console.log(body));
+            
+            // .then((body) => body.items)
+            // .then((items) => {
+            //   //요청받은 결과가 도착하며면, 리스트 아이템, img 추가하기
+            //   const ulTag = document.querySelector('#search-result-list');
+            //   items.forEach((item) => {
+            //     let liTag = document.createElement('li');
+            //     let titleTag = document.createElement('p');
+            //     let imgTag = document.createElement('img');
+            //     let channelTitleTag = document.createElement('h5');
+            //     titleTag.innerText = item.snippet.title;
+            //     imgTag.src = item.snippet.thumbnails.medium.url;
+            //     channelTitleTag.innerText = item.snippet.channelTitle;
+            //     liTag.appendChild(channelTitleTag);
+            //     liTag.appendChild(imgTag);
+            //     liTag.appendChild(titleTag);
+            //     ulTag.appendChild(liTag);
+            //   });
+            // });
+        // });
+
+
+
+
+        
+      </script>
+      <script>
+		      
+		const showModalBtn = document.getElementById("showModalBtn");
+		
+		showModalBtn.addEventListener("click", function() {
+		  
+		const reviewsContainer = document.getElementById("reviewmodal-body");
+		const reviews = JSON.parse(localStorage.getItem("video") || "[]");
+		console.log(reviews);
+		  
+		reviewsContainer.innerHTML = "";
+		
+		  // Loop through the reviews and add them to the container
+		for (const review of reviews) {
+		  const p = document.createElement("p");
+		  p.innerHTML = "작성자: ";
+		  p.innerHTML += review.user;
+	  	  p.innerHTML += "<br> 제목: ";
+	  	  p.innerHTML += review.title;
+	  	  p.innerHTML += "<br> 내용: ";
+		  p.innerHTML += review.content;
+		  reviewsContainer.appendChild(p);
+		 }
+		
+		
+		});
+      </script>
+
+
+
+
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
