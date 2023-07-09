@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafit.board.model.dao.ReviewDao">
+
+	<resultMap type="Review" id="reviewMap">
+		<result column="reg_date" property="regDate" />
+		<result column="mod_date" property="modDate" />
+		<result column="user_seq" property="userSeq" />
+		<result column="video_seq" property="videoSeq" />
+	</resultMap>
+
+	<select id="selectByVideoSeq" parameterType="int" resultMap="reviewMap">
+		SELECT
+			r.seq AS seq,
+			r.title AS title,
+			r.content AS content,
+			r.reg_date AS regDate,
+			r.mod_date AS modDate,
+			r.user_seq AS userSeq,
+			r.video_seq AS videoSeq
+		FROM review r, video v, user u
+		WHERE r.user_seq = u.seq AND r.video_seq = v.seq AND r.video_seq = #{videoSeq};
+	</select>
+    
+    <select id="selectOne" parameterType="int" resultMap="reviewMap">
+    	SELECT *
+    	FROM review
+    	WHERE seq = #{seq};
+    </select>
+    
+    <insert id="insert" parameterType="Review">
+    	INSERT INTO review(title, content, user_seq, video_seq)
+    	VALUES (#{title}, #{content}, #{userSeq}, #{videoSeq});
+    </insert>
+    
+    <update id="update" parameterType="Review">
+        UPDATE review
+        SET title = #{title}, content = #{content}, mod_date = NOW()
+        WHERE seq = #{seq};
+    </update>
+   
+    <delete id="delete" parameterType="int">
+    	DELETE FROM review
+    	WHERE seq = #{seq};
+    </delete>
+    
+</mapper>
