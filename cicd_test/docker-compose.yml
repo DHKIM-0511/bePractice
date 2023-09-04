@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+  react:
+    image: nooroongzi/docker-frontend
+    volumes:
+      - ./frontend:/app
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment: # 윈도우 환경에서 실시간으로 매핑하려면 필요
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+
+  springboot:
+    image: nooroongzi/docker-backend
+    volumes:
+      - ./backend:/app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
