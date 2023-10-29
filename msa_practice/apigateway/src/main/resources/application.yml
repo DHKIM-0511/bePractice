@@ -40,3 +40,12 @@ spring:
                 baseMessage: Hi, There
                 preLogger: true
                 postLogger: true
+
+token:
+  secret: user_token
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace
