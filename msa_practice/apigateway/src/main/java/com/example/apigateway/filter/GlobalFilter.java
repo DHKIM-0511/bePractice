@@ -12,25 +12,26 @@ import reactor.core.publisher.Mono;
 @Component
 @Slf4j
 public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Config> {
-    public GlobalFilter(){
+
+    public GlobalFilter() {
         super(Config.class);
     }
 
     @Override
     public GatewayFilter apply(Config config) {
         //Custom Pre Filter
-        return (exchange, chain)->{
+        return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
             ServerHttpResponse response = exchange.getResponse();
-            log.info("Global Filter baseMessage: {}",config.getBaseMessage());
+            log.info("Global Filter baseMessage: {}", config.getBaseMessage());
 
-            if(config.isPreLogger()){
+            if (config.isPreLogger()) {
                 log.info("Global Filter Start: request id -> {}", request.getId());
             }
 
             //Custom Post Filter
-            return chain.filter(exchange).then(Mono.fromRunnable(() ->{
-                if(config.isPostLogger()){
+            return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                if (config.isPostLogger()) {
                     log.info("Global Filter End: response code -> {}", response.getStatusCode());
                 }
 
@@ -39,7 +40,8 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
     }
 
     @Data
-    public static class Config{
+    public static class Config {
+
         private String baseMessage;
         private boolean preLogger;
         private boolean postLogger;
