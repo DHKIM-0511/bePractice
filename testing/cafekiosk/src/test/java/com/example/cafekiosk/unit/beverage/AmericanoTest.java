@@ -19,4 +19,5 @@ class AmericanoTest {
 
         assertThat(americano.getPrice()).isEqualTo(4000);
     }
+
 }
