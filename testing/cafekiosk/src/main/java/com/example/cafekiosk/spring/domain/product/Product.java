@@ -1,6 +1,7 @@
 package com.example.cafekiosk.spring.domain.product;
 
 import com.example.cafekiosk.spring.domain.BaseEntity;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
