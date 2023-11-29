@@ -5,9 +5,11 @@ import com.example.cafekiosk.spring.domain.product.ProductSellingStatus;
 import com.example.cafekiosk.spring.domain.product.ProductType;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
-public class ProductCreateRequest {
+@NoArgsConstructor
+public class ProductCreateServiceRequest {
 
     private ProductType type;
     private ProductSellingStatus sellingStatus;
@@ -15,8 +17,7 @@ public class ProductCreateRequest {
     private int price;
 
     @Builder
-    private ProductCreateRequest(ProductType type,
-        ProductSellingStatus sellingStatus, String name, int price) {
+    private ProductCreateServiceRequest(ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
         this.type = type;
         this.sellingStatus = sellingStatus;
         this.name = name;

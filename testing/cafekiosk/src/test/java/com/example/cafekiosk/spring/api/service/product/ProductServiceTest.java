@@ -1,13 +1,12 @@
 package com.example.cafekiosk.spring.api.service.product;
 
-import static com.example.cafekiosk.spring.domain.product.ProductSellingStatus.HOLD;
 import static com.example.cafekiosk.spring.domain.product.ProductSellingStatus.SELLING;
-import static com.example.cafekiosk.spring.domain.product.ProductSellingStatus.STOP_SELLING;
 import static com.example.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 import static org.assertj.core.api.Assertions.*;
 
 import com.example.cafekiosk.spring.api.service.product.Response.ProductResponse;
-import com.example.cafekiosk.spring.api.service.product.request.ProductCreateRequest;
+import com.example.cafekiosk.spring.api.controller.product.request.ProductCreateRequest;
+import com.example.cafekiosk.spring.api.service.product.request.ProductCreateServiceRequest;
 import com.example.cafekiosk.spring.domain.product.Product;
 import com.example.cafekiosk.spring.domain.product.ProductRepository;
 import com.example.cafekiosk.spring.domain.product.ProductSellingStatus;
@@ -42,7 +41,7 @@ class ProductServiceTest {
         Product product = createProduct("001", HANDMADE, SELLING, "아메리카노", 4000);
         productRepository.save(product);
 
-        ProductCreateRequest request = ProductCreateRequest.builder()
+        ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
             .type(HANDMADE)
             .sellingStatus(SELLING)
             .name("카푸치노")
@@ -69,7 +68,7 @@ class ProductServiceTest {
     @Test
     void createProductWhenProductIsEmpty(){
         //given
-        ProductCreateRequest request = ProductCreateRequest.builder()
+        ProductCreateServiceRequest request = ProductCreateServiceRequest.builder()
             .type(HANDMADE)
             .sellingStatus(SELLING)
             .name("카푸치노")

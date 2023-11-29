@@ -1,7 +1,8 @@
 package com.example.cafekiosk.spring.api.service.product;
 
 import com.example.cafekiosk.spring.api.service.product.Response.ProductResponse;
-import com.example.cafekiosk.spring.api.service.product.request.ProductCreateRequest;
+import com.example.cafekiosk.spring.api.controller.product.request.ProductCreateRequest;
+import com.example.cafekiosk.spring.api.service.product.request.ProductCreateServiceRequest;
 import com.example.cafekiosk.spring.domain.product.Product;
 import com.example.cafekiosk.spring.domain.product.ProductRepository;
 import com.example.cafekiosk.spring.domain.product.ProductSellingStatus;
@@ -20,7 +21,7 @@ public class ProductService {
 
     //동시성 이슈 -> 유니크 제약조건 + 재시도 로직 or UUID
     @Transactional
-    public ProductResponse createProduct(ProductCreateRequest request) {
+    public ProductResponse createProduct(ProductCreateServiceRequest request) {
         String nextProductNumber = createNextProductNumber();
 
         Product product = request.toEntity(nextProductNumber);
