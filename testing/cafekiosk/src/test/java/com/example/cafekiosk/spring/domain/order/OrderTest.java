@@ -3,10 +3,7 @@ package com.example.cafekiosk.spring.domain.order;
 import static com.example.cafekiosk.spring.domain.product.ProductSellingStatus.SELLING;
 import static com.example.cafekiosk.spring.domain.product.ProductType.*;
 
-import com.example.cafekiosk.spring.domain.order.Order;
-import com.example.cafekiosk.spring.domain.order.OrderStatus;
 import com.example.cafekiosk.spring.domain.product.Product;
-import com.example.cafekiosk.spring.domain.product.ProductType;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
