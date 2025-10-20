@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+	implementation("org.modelmapper:modelmapper:3.2.3")
+
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework:spring-web'
 
