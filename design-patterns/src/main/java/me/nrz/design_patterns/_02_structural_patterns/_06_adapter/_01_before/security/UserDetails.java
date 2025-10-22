@@ -1,4 +1,4 @@
-package me.nrz.design_patterns._02_structural_patterns._01_before.security;
+package me.nrz.design_patterns._02_structural_patterns._06_adapter._01_before.security;
 
 public interface UserDetails {
 

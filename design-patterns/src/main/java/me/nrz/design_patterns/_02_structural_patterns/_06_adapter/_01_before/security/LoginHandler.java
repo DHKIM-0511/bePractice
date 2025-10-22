@@ -1,8 +1,5 @@
-package me.nrz.design_patterns._02_structural_patterns._02_after.security;
+package me.nrz.design_patterns._02_structural_patterns._06_adapter._01_before.security;
 
-/**
- * target
- */
 public class LoginHandler {
 
     UserDetailsService userDetailsService;

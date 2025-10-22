@@ -1,8 +1,8 @@
-package me.nrz.design_patterns._02_structural_patterns._02_after;
+package me.nrz.design_patterns._02_structural_patterns._06_adapter._02_after;
 
 
-import me.nrz.design_patterns._02_structural_patterns._02_after.security.LoginHandler;
-import me.nrz.design_patterns._02_structural_patterns._02_after.security.UserDetailsService;
+import me.nrz.design_patterns._02_structural_patterns._06_adapter._02_after.security.LoginHandler;
+import me.nrz.design_patterns._02_structural_patterns._06_adapter._02_after.security.UserDetailsService;
 
 public class App {
 

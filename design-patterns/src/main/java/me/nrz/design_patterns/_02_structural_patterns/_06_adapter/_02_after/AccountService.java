@@ -1,4 +1,4 @@
-package me.nrz.design_patterns._02_structural_patterns._02_after;
+package me.nrz.design_patterns._02_structural_patterns._06_adapter._02_after;
 
 /**
  * adaptee

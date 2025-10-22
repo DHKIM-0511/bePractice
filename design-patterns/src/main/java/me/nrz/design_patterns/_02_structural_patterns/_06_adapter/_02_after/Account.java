@@ -1,5 +1,7 @@
-package me.nrz.design_patterns._02_structural_patterns._01_before;
-
+package me.nrz.design_patterns._02_structural_patterns._06_adapter._02_after;
+/**
+ * adaptee
+ */
 public class Account {
 
     private String name;
